@@ -838,7 +838,7 @@ namespace OpenRA
 			return delta.Yaw.Facing;
 		}
 
-		public void Resize(int width, int height)		// editor magic.
+		public void Resize(int width, int height)
 		{
 			var oldMapTiles = MapTiles.Value;
 			var oldMapResources = MapResources.Value;
@@ -850,9 +850,10 @@ namespace OpenRA
 			MapHeight = Exts.Lazy(() => CellLayer.Resize(oldMapHeight, newSize, oldMapHeight[MPos.Zero]));
 			MapSize = new int2(newSize);
 
-			var tl = new MPos(0, 0).ToCPos(this);
-			var br = new MPos(MapSize.X - 1, MapSize.Y - 1).ToCPos(this);
-			AllCells = new CellRegion(Grid.Type, tl, br);
+			var tl = new MPos(0, 0);
+			var br = new MPos(MapSize.X - 1, MapSize.Y - 1);
+			AllCells = new CellRegion(Grid.Type, tl.ToCPos(this), br.ToCPos(this));
+			SetBounds(new PPos(tl.U + 1, tl.V + 1), new PPos(br.U - 1, br.V - 1));
 		}
 
 		public void SetBounds(PPos tl, PPos br)
@@ -1151,7 +1152,7 @@ namespace OpenRA
 			if (maxRange < minRange)
 				throw new ArgumentOutOfRangeException("maxRange", "Maximum range is less than the minimum range.");
 
-			if (maxRange > TilesByDistance.Length)
+			if (maxRange >= TilesByDistance.Length)
 				throw new ArgumentOutOfRangeException("maxRange", "The requested range ({0}) exceeds the maximum allowed ({1})".F(maxRange, MaxTilesInCircleRange));
 
 			Func<CPos, bool> valid = Contains;

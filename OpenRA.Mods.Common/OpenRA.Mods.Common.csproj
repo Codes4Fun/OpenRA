@@ -139,7 +139,6 @@
     <Compile Include="AI\AttackOrFleeFuzzy.cs" />
     <Compile Include="AI\BaseBuilder.cs" />
     <Compile Include="AI\HackyAI.cs" />
-    <Compile Include="AI\RushFuzzy.cs" />
     <Compile Include="AI\Squad.cs" />
     <Compile Include="AI\StateMachine.cs" />
     <Compile Include="AI\States\AirStates.cs" />
@@ -731,6 +730,7 @@
     <Compile Include="Util.cs" />
     <Compile Include="Traits\Render\WithGateSpriteBody.cs" />
     <Compile Include="ColorValidator.cs" />
+    <Compile Include="UtilityCommands\ResizeMapCommand.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
