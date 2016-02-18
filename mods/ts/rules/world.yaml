@@ -170,6 +170,7 @@ World:
 	StartGameNotification:
 	ObjectivesPanel:
 		PanelName: SKIRMISH_STATS
+	RenderDomainIndex
 
 EditorWorld:
 	Inherits: ^BaseWorld

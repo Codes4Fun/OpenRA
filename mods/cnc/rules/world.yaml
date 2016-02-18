@@ -149,6 +149,7 @@ World:
 	ObjectivesPanel:
 		PanelName: SKIRMISH_STATS
 	RadarPings:
+	RenderDomainIndex
 
 EditorWorld:
 	Inherits: ^BaseWorld

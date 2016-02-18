@@ -40,6 +40,11 @@ namespace OpenRA.Mods.Common.Traits
 			return domainIndexes[movementClass].IsPassable(p1, p2);
 		}
 
+        public int GetIndex(CPos p, uint movementClass)
+        {
+            return domainIndexes[movementClass].GetIndex(p);
+        }
+
 		/// Regenerate the domain index for a group of cells
 		public void UpdateCells(World world, IEnumerable<CPos> cells)
 		{
@@ -65,6 +70,11 @@ namespace OpenRA.Mods.Common.Traits
 
 			using (new PerfTimer("BuildDomains: {0} for movement class {1}".F(world.Map.Title, movementClass)))
 				BuildDomains(world);
+		}
+
+        public int GetIndex(CPos p)
+        {
+            return domains[p];
 		}
 
 		public bool IsPassable(CPos p1, CPos p2)
